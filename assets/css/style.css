@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: lightgreen;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    overflow: hidden;
+}
+
+.navbar {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    padding: 0.5rem;
+    position: fixed;
+    color: lightgreen;
+    font-size: 1.9rem;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.game_start_up {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.game_feature_screen {
+    width: 30rem;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.game_feature_screen .title {
+    display: flex;
+    font-size: 2rem;
+    font-weight: 599;
+    color: limegreen;
+    margin-bottom: 1rem;
+    align-items: center;
+    border-radius: 100px;
+    justify-content: center;
+    border-bottom: 10px solid lightgreen;
+}
+
+.game_feature_screen .query {
+    color: limegreen;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.game_feature_screen .table_container {
+     display: flex;
+     color: limegreen;
+     margin-top: 0.5rem;
+     align-items: center;
+     font-size: 1.2rem;
+     justify-content: center;
+}
+
+.game_feature_screen .table_container .table span {
+    font-weight: 500;
+}
+
+.game_feature_screen .submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.game_feature_screen .submit a {
+    width: 5rem;
+    color: white;
+    padding: 0.5rem;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 20px;
+    background-color: lightgreen;
+}
+
+.game_feature_screen .submit a:hover {
+    background-color: limegreen;
+    transform: scale(1.1);
+}
+
+
+
+
+.game {
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+}
+
+.game .score_container {
+    display: flex;
+    height: 5rem;
+    width: 100px;
+    justify-content: space-between;
+    background-color: green;
+}
+
+#game_start_up_container {
+    display: none;
+}
