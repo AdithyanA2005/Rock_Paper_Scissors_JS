@@ -1,64 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>RPS</title>
-  </head>
-  <body>
-    <header>
-        <nav class="navbar">
-            <h4>RPS<h4/>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <title>RPS</title>
+    </head>
+    <body class="blightgreen">
+        <header>
+            <nav id="navbar" class="navbar bwhite lightgreen">
+                <h4>RPS<h4/>
+            </nav>
+        </header>
 
-    <section id="game_start_up_container">
-      <div class="game_start_up">
-        <div class="game_feature_screen">
-          <div class="title">Start Game</div>
-          <div class="query">
-            Hello, Before you start the game you should know the key mappings
-          </div>
-          <div class="table_container">
-            <div class="table">
-              <div><span>A</span> : Rock</div>
-              <div><span>S</span> : Paper</div>
-              <div><span>D</span> : Scissor</div>
+        <section id="game_start_up_container">
+            <div class="game_start_up">
+                <div class="game_feature_screen bwhite">
+                    <div class="title limegreen">Start Game</div>
+                    <div class="query limegreen">Hello, Before you start the game you should know the key mappings click <b>OK</b> or press <b>Enter</b> to continur</div>
+                    <div class="table_container limegreen">
+                        <div class="table">
+                            <div><span>A</span> : Rock</div>
+                            <div><span>S</span> : Paper</div>
+                            <div><span>D</span> : Scissor</div>
+                        </div>
+                    </div>
+                    <div class="submit"><a class="white blightgreen" onclick="ok_guide()">OK</a></div>
+                </div>
             </div>
-          </div>
-          <div class="submit"><a onclick="ok_guide()">OK</a></div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section id="game_container">
-      <div class="game">
-        <div class="score_container">
-          <div class="computer">
-            <h3>Computer</h3>
-            <h3>13</h3>
-            <h3>13</h3>
-            <h3>13</h3>
-            <h3>13</h3>
-            <h3>13</h3>
-            <h3>13</h3>
-          </div>
-          <div class="player">
-            <h3>You</h3>
-            <h3>13</h3>
-          </div>
-        </div>
-        <div class="game_ground">
-            asdlfjasjdf
-            asdfajksdflakjsbdfa
-            sdfasdfnakjsdfabdfjbasljdfasd
-            fasdhfblasdfhlabsdf
-            
-        </div>
-      </div>
-    </section>
+        <section id="game_container">
+            <div class="game">
+                <div class="score_container">
+                    <div class="score_box bwhite pink">
+                        <div>
+                            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="desktop" class="score_logo pink svg-inline--fa fa-desktop fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z"></path></svg>
+                        </div>
+                        <div>
+                            <h3>Computer</h3>
+                            <h3 id="computer_score">13</h3>
+                        </div>
+                    </div>
+                    <div class="score_box bwhite limegreen">
+                        <div>
+                            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user" class="score_logo green svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg>
+                        </div>
+                        <div>
+                            <h3>You</h3>
+                            <h3 id="player_score" >13</h3>
+                        </div>
+                    </div>
+                </div>
 
-    <script src="assets/js/index.js"></script>
+				<div class="game_ground bwhite">
+					<div class="game_ground_div bgreen">
+						<div id="c_paper" class="card bwhite dnone">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sticky-note" class="wepon pink svg-inline--fa fa-sticky-note fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M312 320h136V56c0-13.3-10.7-24-24-24H24C10.7 32 0 42.7 0 56v400c0 13.3 10.7 24 24 24h264V344c0-13.2 10.8-24 24-24zm129 55l-98 98c-4.5 4.5-10.6 7-17 7h-6V352h128v6.1c0 6.3-2.5 12.4-7 16.9z"></path></svg>
+						</div>
+						<div id="c_scissor" class="card bwhite dnone">
+								<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cut" class="wepon pink svg-inline--fa fa-cut fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M278.06 256L444.48 89.57c4.69-4.69 4.69-12.29 0-16.97-32.8-32.8-85.99-32.8-118.79 0L210.18 188.12l-24.86-24.86c4.31-10.92 6.68-22.81 6.68-35.26 0-53.02-42.98-96-96-96S0 74.98 0 128s42.98 96 96 96c4.54 0 8.99-.32 13.36-.93L142.29 256l-32.93 32.93c-4.37-.61-8.83-.93-13.36-.93-53.02 0-96 42.98-96 96s42.98 96 96 96 96-42.98 96-96c0-12.45-2.37-24.34-6.68-35.26l24.86-24.86L325.69 439.4c32.8 32.8 85.99 32.8 118.79 0 4.69-4.68 4.69-12.28 0-16.97L278.06 256zM96 160c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32zm0 256c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32z"></path></svg>
+						</div>
+						<div id="c_rock" class="card bwhite dnone">
+								<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="gem" class="wepon pink svg-inline--fa fa-gem fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M464 0H112c-4 0-7.8 2-10 5.4L2 152.6c-2.9 4.4-2.6 10.2.7 14.2l276 340.8c4.8 5.9 13.8 5.9 18.6 0l276-340.8c3.3-4.1 3.6-9.8.7-14.2L474.1 5.4C471.8 2 468.1 0 464 0zm-19.3 48l63.3 96h-68.4l-51.7-96h56.8zm-202.1 0h90.7l51.7 96H191l51.6-96zm-111.3 0h56.8l-51.7 96H68l63.3-96zm-43 144h51.4L208 352 88.3 192zm102.9 0h193.6L288 435.3 191.2 192zM368 352l68.2-160h51.4L368 352z"></path></svg>
+						</div>
+						<div class="card bwhite">
+							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rocket" class="wepon start pink svg-inline--fa fa-rocket fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505.12019,19.09375c-1.18945-5.53125-6.65819-11-12.207-12.1875C460.716,0,435.507,0,410.40747,0,307.17523,0,245.26909,55.20312,199.05238,128H94.83772c-16.34763.01562-35.55658,11.875-42.88664,26.48438L2.51562,253.29688A28.4,28.4,0,0,0,0,264a24.00867,24.00867,0,0,0,24.00582,24H127.81618l-22.47457,22.46875c-11.36521,11.36133-12.99607,32.25781,0,45.25L156.24582,406.625c11.15623,11.1875,32.15619,13.15625,45.27726,0l22.47457-22.46875V488a24.00867,24.00867,0,0,0,24.00581,24,28.55934,28.55934,0,0,0,10.707-2.51562l98.72834-49.39063c14.62888-7.29687,26.50776-26.5,26.50776-42.85937V312.79688c72.59753-46.3125,128.03493-108.40626,128.03493-211.09376C512.07526,76.5,512.07526,51.29688,505.12019,19.09375ZM384.04033,168A40,40,0,1,1,424.05,128,40.02322,40.02322,0,0,1,384.04033,168Z"></path></svg>
+						</div>
+					</div>
+				
+					<div class="game_ground_div bpink">
+						<div id="p_papaer" class="card bwhite dnone">
+							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sticky-note" class="wepon green svg-inline--fa fa-sticky-note fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M312 320h136V56c0-13.3-10.7-24-24-24H24C10.7 32 0 42.7 0 56v400c0 13.3 10.7 24 24 24h264V344c0-13.2 10.8-24 24-24zm129 55l-98 98c-4.5 4.5-10.6 7-17 7h-6V352h128v6.1c0 6.3-2.5 12.4-7 16.9z"></path></svg>
+						</div>
+						<div id="p_scissor" class="card bwhite dnone">
+							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cut" class="wepon green svg-inline--fa fa-cut fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M278.06 256L444.48 89.57c4.69-4.69 4.69-12.29 0-16.97-32.8-32.8-85.99-32.8-118.79 0L210.18 188.12l-24.86-24.86c4.31-10.92 6.68-22.81 6.68-35.26 0-53.02-42.98-96-96-96S0 74.98 0 128s42.98 96 96 96c4.54 0 8.99-.32 13.36-.93L142.29 256l-32.93 32.93c-4.37-.61-8.83-.93-13.36-.93-53.02 0-96 42.98-96 96s42.98 96 96 96 96-42.98 96-96c0-12.45-2.37-24.34-6.68-35.26l24.86-24.86L325.69 439.4c32.8 32.8 85.99 32.8 118.79 0 4.69-4.68 4.69-12.28 0-16.97L278.06 256zM96 160c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32zm0 256c-17.64 0-32-14.36-32-32s14.36-32 32-32 32 14.36 32 32-14.36 32-32 32z"></path></svg>
+						</div>
+						<div id="p_rock" class="card bwhite dnone">
+							<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="gem" class="wepon green svg-inline--fa fa-gem fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M464 0H112c-4 0-7.8 2-10 5.4L2 152.6c-2.9 4.4-2.6 10.2.7 14.2l276 340.8c4.8 5.9 13.8 5.9 18.6 0l276-340.8c3.3-4.1 3.6-9.8.7-14.2L474.1 5.4C471.8 2 468.1 0 464 0zm-19.3 48l63.3 96h-68.4l-51.7-96h56.8zm-202.1 0h90.7l51.7 96H191l51.6-96zm-111.3 0h56.8l-51.7 96H68l63.3-96zm-43 144h51.4L208 352 88.3 192zm102.9 0h193.6L288 435.3 191.2 192zM368 352l68.2-160h51.4L368 352z"></path></svg>
+						</div>
+						<div class="card bwhite">
+							<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="rocket" class="wepon start green svg-inline--fa fa-rocket fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505.12019,19.09375c-1.18945-5.53125-6.65819-11-12.207-12.1875C460.716,0,435.507,0,410.40747,0,307.17523,0,245.26909,55.20312,199.05238,128H94.83772c-16.34763.01562-35.55658,11.875-42.88664,26.48438L2.51562,253.29688A28.4,28.4,0,0,0,0,264a24.00867,24.00867,0,0,0,24.00582,24H127.81618l-22.47457,22.46875c-11.36521,11.36133-12.99607,32.25781,0,45.25L156.24582,406.625c11.15623,11.1875,32.15619,13.15625,45.27726,0l22.47457-22.46875V488a24.00867,24.00867,0,0,0,24.00581,24,28.55934,28.55934,0,0,0,10.707-2.51562l98.72834-49.39063c14.62888-7.29687,26.50776-26.5,26.50776-42.85937V312.79688c72.59753-46.3125,128.03493-108.40626,128.03493-211.09376C512.07526,76.5,512.07526,51.29688,505.12019,19.09375ZM384.04033,168A40,40,0,1,1,424.05,128,40.02322,40.02322,0,0,1,384.04033,168Z"></path></svg>
+						</div>
+					</div>
+				</div>
+      		</div>
+        </section>
+
+        <section id="winner_container" class="blightgreen modal_container">
+            <div class="modal bwhite">
+                <div class="modal_header">
+                    <img id="modal_image" src="">
+                </div>
+                <div class="modal_body">
+                    <h3 id="modal_body_heading" class=""></h3>
+                    <h4 id="modal_body_subheading" class=""></h4>
+                </div>
+                <div class="restart">
+                    <a id="modal_btn" class="white" onclick="retry()">Open Modal</a>
+                </div>
+            </div>
+        </section>
+
+        <script src="assets/js/index.js">
+        </script>
   </body>
 </html>
