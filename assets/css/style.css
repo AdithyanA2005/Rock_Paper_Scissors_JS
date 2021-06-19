@@ -12,6 +12,10 @@
 .blightgreen{background-color: lightgreen}
 .blightred{background-color: rgb(255, 0, 119);}
 
+.dnone {display:none !important;}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -34,6 +38,8 @@ body{
     align-items: center;
     justify-content: center;
 }
+
+
 
 /* GAME START UP SCREEN  */
 .game_start_up {
@@ -97,6 +103,7 @@ body{
     transform: scale(1.1);
     background-color: limegreen;
 }
+
 
 
 /* GAME MAIN PLAY GROUND  */
@@ -170,6 +177,8 @@ body{
 .game .game_ground .card .start {
     transform: scale(1.5);
 }
+
+
 
 /* WINNER MODAL  */
 .modal_container {
@@ -246,6 +255,14 @@ body{
 }
 
 
-.dnone {
-    display:none !important;
+
+/* ANIMATIONS AND MAJOR EFFECTS */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
 }
