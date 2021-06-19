@@ -1,21 +1,64 @@
-.pink {color: pink;}
-.white{color: white;}
-.green{color: limegreen;}
-.limegreen{color: limegreen;}
-.lightgreen{color: lightgreen;}
-.lightred{color: rgb(255, 0, 119);}
+/* TEXT COLORS */
+.pink {
+    color: pink;
+}
 
-.bpink{background-color: pink;}
-.bwhite{background-color: white;}
-.bgreen{background-color: limegreen;}
-.blimegreen{background-color: limegreen;}
-.blightgreen{background-color: lightgreen}
-.blightred{background-color: rgb(255, 0, 119);}
+.white {
+    color: white;
+}
 
-.dnone {display:none !important;}
+.green {
+    color: limegreen;
+}
+
+.limegreen {
+    color: limegreen;
+}
+
+.lightgreen {
+    color: lightgreen;
+}
+
+.lightred {
+    color: rgb(255, 0, 119);
+}
 
 
 
+/* BACKGROUND COLORS  */
+.bpink{ 
+    background-color: pink;
+}
+
+.bwhite {
+    background-color: white;
+}
+
+.bgreen {
+    background-color: limegreen;
+}
+
+.blimegreen {
+    background-color: limegreen;
+}
+
+.blightgreen {
+    background-color: lightgreen
+}
+
+.blightred {
+    background-color: rgb(255, 0, 119);
+}
+
+
+
+/* DISPLAY CLASSES  */
+.dnone {
+    display:none !important;
+}
+
+
+/* ALWAYS COMPONENTS */
 * {
     margin: 0;
     padding: 0;
@@ -140,6 +183,7 @@ body{
     width: 50rem;
     height: 40rem;
     margin: auto;
+    flex-wrap: wrap;
     display: flex;
     margin-top: 3rem;
     border-radius: 20px;
@@ -152,8 +196,9 @@ body{
 }
 
 .game_ground_div {
-    width: 50%;
+    width: 49%;
     height:100%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -171,6 +216,7 @@ body{
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
@@ -192,15 +238,13 @@ body{
 }
   
 .modal {
-    width: 50rem;
+    width: 50%;
     margin: auto;
     padding: 2rem;  
     position: relative;
     border-radius: 20px;
     animation-duration: 0.7s;
     animation-name: animatetop;
-    -webkit-animation-duration: 0.7s;
-    -webkit-animation-name: animatetop;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
@@ -213,9 +257,8 @@ body{
 }
 
 .modal .modal_header img {
-    width: 30rem;
-    height: 15rem;
-
+    width: 80%;
+    height: 40%;
 }
 
 .modal .modal_body {
@@ -257,12 +300,224 @@ body{
 
 
 /* ANIMATIONS AND MAJOR EFFECTS */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
+@keyframes animatetop {
+    from {
+        top:-300px; 
+        opacity:0
+    }
+
+    to {
+        top:0; 
+        opacity:1
+    }
 }
 
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+@keyframes shake {
+    0% {  
+        transform: translate(1px, 1px) rotate(0deg); 
+    }
+
+    10% { 
+        transform: translate(-1px, -2px) rotate(-1deg); 
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg); 
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg); 
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg); 
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg); 
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg); 
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg); 
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg); 
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(-1deg); 
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(0deg); 
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+    .game .game_ground {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .game .game_ground {
+        height: 60vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .game .score_container {
+        margin-top: 2rem;
+    }
+
+    .game .game_ground {
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .game .game_ground {
+        height: 50vh;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .game .game_ground .card {
+        height: 80%;
+        width: 80%;
+    }
+
+    .modal .modal_header img {
+        width: 90%;
+        height: 45%;
+    }
+
+    .modal .modal_body {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .game .game_ground {
+        width: 60vw;
+        height: 35vh;        
+    }
+
+    .game .game_ground_div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .game_feature_screen {
+        width: 70%;
+    }
+    
+    .modal .modal_body h3 {
+        font-size: 2rem;
+    }
+
+    .modal .modal_body h4 {
+        font-size: 0.5;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .game .game_ground {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .game_feature_screen {
+        width: 75%;
+    }
+
+    .modal .modal_body {
+        padding-top: 0rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .modal .modal_body h3 {
+        font-size: 1.5rem;
+    }
+
+    .modal .modal_body h4 {
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .game .score_container .score_box {
+        width: 30vw;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .modal .modal_body {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .modal .modal_body img {
+        width: 100%;
+        height: 50%;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .game .score_container .score_box {
+        font-size: 0.8rem;
+    }
+
+    .game .score_container .score_box .score_logo{
+        height: 1.5rem;
+    }
+    
+    .modal {
+        width: 60%;
+    }
+
+    .modal .modal_body h3 {
+        font-size: 1.2rem;
+    }
+
+    .modal .modal_body h4 {
+        font-size: .8rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .modal {
+        width: 70%;
+        padding: 1rem;
+    }
+    
+    .modal .modal_body {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .game .score_container .score_box {
+        justify-content: center;
+    }
+
+    .game .score_container .score_box .score_logo{
+        display: none;
+    }
+
+    .game .game_ground {
+        height: vh;
+    }
 }
