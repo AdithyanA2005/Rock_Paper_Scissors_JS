@@ -165,6 +165,7 @@ body{
     width: 90vw;
     height: 5rem;
     margin: auto;
+    margin-top: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -186,8 +187,8 @@ body{
 
 /* 2 - game ground  */
 .game .game_ground {
-    width: 30vw;
-    height: 30vh;
+    width: 20rem;
+    height: 20rem;
     margin: auto;
     margin-top: 3rem;
     border-radius: 20px;
@@ -195,7 +196,8 @@ body{
 
 .game .game_ground .title {
     width: inherit;
-    padding: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 600;
@@ -245,20 +247,42 @@ body{
 }
 
 .player_buttons{
-    width: 90%;
-    bottom: 1rem;
-    margin: auto;
+    width: 20rem;
+    bottom: 2rem;
     display: flex;  
+    margin-top: 1rem;
     position: absolute;
-    justify-content: right;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    justify-content: space-between;
 }
 
 .player_buttons .player_btn {
+    outline: 0;
     width: 5rem;
     height: 5rem;
     padding: 0.5rem;
-    margin-left: 2rem;
     border-radius: 50%;
+    transition: 0.5s ease;
+    border: 2px solid white;
+}
+
+.player_buttons .player_btn .btn_logo {
+    width: 60%;
+    height: 60%;
+}
+
+.player_buttons .player_btn:hover {
+    transform: scale(1.1);
+    transition: 0.5s ease;
+    background-color: white;
+    color: rgb(255, 0, 119);
+    border: 2px solid rgb(255, 0, 119);
+}
+
+.player_buttons .player_btn:hover .btn_logo {
+    transition: 0.5s ease;
+    color: rgb(255, 0, 119);
 }
 
 
@@ -395,36 +419,13 @@ body{
     }
 
 }
-/* 
-@media screen and (max-width: 900px) {
-    .game .game_ground {
-        width: 90vw;
-    }
-}
-
-@media screen and (max-width: 830px) {
-    .game .game_ground {
-        height: 60vh;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .game .score_container {
-        margin-top: 2rem;
-    }
-
-    .game .game_ground {
-        height: 55vh;
-    }
-}
-
-@media screen and (max-width: 850px) {
-    .game .game_ground {
-        height: 50vh;
-    }
-}
 
 @media screen and (max-width: 740px) {
+    .player_buttons {
+        width: 20rem;
+        transform: 0.5s ease;
+    }
+
     .game .game_ground .card {
         height: 80%;
         width: 80%;
@@ -442,17 +443,6 @@ body{
     }
 }
 
-@media screen and (max-width: 700px) {
-    .game .game_ground {
-        width: 60vw;
-        height: 35vh;        
-    }
-
-    .game .game_ground_div {
-        width: 100%;
-    }
-}
-
 @media screen and (max-width: 640px) {
     .game_feature_screen {
         width: 70%;
@@ -464,12 +454,6 @@ body{
 
     .modal .modal_body h4 {
         font-size: 0.5;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .game .game_ground {
-        width: 70vw;
     }
 }
 
@@ -535,6 +519,15 @@ body{
 }
 
 @media screen and (max-width: 350px) {
+    .game .game_ground {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .player_buttons {
+        width: 18rem;
+    }
+    
     .modal {
         width: 70%;
         padding: 1rem;
@@ -545,7 +538,7 @@ body{
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 310px) {
     .game .score_container .score_box {
         justify-content: center;
     }
@@ -553,8 +546,21 @@ body{
     .game .score_container .score_box .score_logo{
         display: none;
     }
+}
 
+
+@media screen and (max-height: 740px) {
     .game .game_ground {
-        height: vh;
+        width: 16rem;
+        height: 16rem;
     }
-} */
+    
+    .player_buttons {
+        width: 16rem;
+    }
+
+    .player_buttons .player_btn {
+        height: 4rem;
+        width: 4rem;
+    }
+}

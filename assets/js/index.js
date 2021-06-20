@@ -144,6 +144,8 @@ function fight(player_wepon) {
             score_of_player += 1; 
         }
     }
+
+    score_count();
 };
 
 function score_count() {
@@ -188,8 +190,6 @@ function main() {
                 ok_guide();
             }
         }
-
-        score_count();
     };
 };
 
