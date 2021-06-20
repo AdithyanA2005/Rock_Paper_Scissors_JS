@@ -1,22 +1,28 @@
-const startup_container = document.getElementById('game_start_up_container');
-const modal_subheading = document.getElementById('modal_body_subheading');
-const modal_heading = document.getElementById('modal_body_heading');
+// These are the containers 
 const game_container = document.getElementById('game_container');
-const modal_button = document.getElementById('modal_btn');
+const startup_container = document.getElementById('game_start_up_container');
+
+// These are the modal elements 
 const modal = document.getElementById("winner_container");
-const c_score = document.getElementById('computer_score');
 const modal_img = document.getElementById('modal_image');
+const modal_button = document.getElementById('modal_btn');
+const modal_heading = document.getElementById('modal_body_heading');
+const modal_subheading = document.getElementById('modal_body_subheading');
+
+// These are the scores elements
+const c_score = document.getElementById('computer_score');
 const p_score = document.getElementById('player_score');
-const c_scissor = document.getElementById('c_scissor');
-const p_scissor = document.getElementById('p_scissor');
-const p_paper = document.getElementById('p_papaer');
-const c_paper = document.getElementById('c_paper');
-const p_rock = document.getElementById('p_rock');
+
+// These are the cards 
 const cards = document.querySelectorAll('.card');
+const c_scissor = document.getElementById('c_scissor');
+const c_paper = document.getElementById('c_paper');
 const c_rock = document.getElementById('c_rock');
 
+// These are used to store scores 
 let score_of_computer = 0;
 let score_of_player = 0;
+
 let start_game = false;
 
 
@@ -57,7 +63,9 @@ function open_winner_modal(winner) {
 };
 
 function close_winner_modal() {
-  modal.classList.add('dnone');
+    score_of_computer = 0;
+    score_of_player = 0;
+    modal.classList.add('dnone');
 };
 
 function ok_guide() {
@@ -77,46 +85,68 @@ function generate_computer_wepon() {
     let random_integer = Math.floor(Math.random() * 3) + 1;
 
     if (random_integer === 1) {
-        wepon = c_rock;
+        wepon = 'rock';
     } 
     else if (random_integer === 2) {
-        wepon = c_paper;
+        wepon = 'paper';
     } 
     else if (random_integer === 3) {
-        wepon = c_scissor;
+        wepon = 'scissor';
     }
 
     return wepon;
 };
 
-function show_cards(computer_wepon, player_wepon){
+function show_cards(computer_wepon){
     // This Function will first hide all the cards 
     // Then it will show the cards provided in params 
 
     cards.forEach((card) => card.classList.add('dnone'));
-    computer_wepon.classList.remove('dnone');
-    player_wepon.classList.remove('dnone');
+
+    if (computer_wepon === 'rock') {
+        c_rock.classList.remove('dnone');
+    }
+    else if (computer_wepon === 'paper') {
+        c_paper.classList.remove('dnone');
+    } 
+    else {
+        c_scissor.classList.remove('dnone');
+    }
 };
 
 function fight(player_wepon) {
     let computer_wepon = generate_computer_wepon();
-    show_cards(computer_wepon, player_wepon);
+    show_cards(computer_wepon);
 
-    if(player_wepon === p_rock) {
-        if (computer_wepon === c_paper) { score_of_computer += 1; }
-        else if (computer_wepon === c_scissor) { score_of_player += 1; }
+    if(player_wepon === 'rock') {
+        if (computer_wepon === 'paper') {
+             score_of_computer += 1; 
+        }
+        else if (computer_wepon === 'scissor') { 
+            score_of_player += 1; 
+        }
     }
-    else if(player_wepon === p_paper) {
-        if (computer_wepon === c_scissor) { score_of_computer += 1; }
-        else if (computer_wepon === c_rock) {score_of_player += 1; }
+
+    else if(player_wepon === 'paper') {
+        if (computer_wepon === 'scissor') { 
+            score_of_computer += 1; 
+        }
+        else if (computer_wepon === 'rock') {
+            score_of_player += 1; 
+        }
     }
+
     else {
-        if (computer_wepon === c_rock) { score_of_computer += 1; }
-        else if (computer_wepon === c_paper) { score_of_player += 1; }
+        if (computer_wepon === 'rock') {
+            score_of_computer += 1;
+        }
+        else if (computer_wepon === 'paper') {
+            score_of_player += 1; 
+        }
     }
 };
 
-function find_winner() {
+function score_count() {
     c_score.innerHTML = score_of_computer;
     p_score.innerHTML = score_of_player;
 
@@ -130,34 +160,38 @@ function find_winner() {
     }
 };
 
+function main() {
+    game_container.classList.add('dnone');
+    modal.classList.add('dnone');
+    c_score.innerHTML = 0;
+    p_score.innerHTML = 0;
+    
+    document.onkeydown = (e) => {
+        let pressed_key = e.key.toLowerCase();
+        if(start_game) {
+            if (pressed_key === 'a') {
+                fight('rock'); 
+            } 
+        
+            else if (pressed_key === 's') {
+                fight('paper'); 
+            }
 
-game_container.classList.add('dnone');
-modal.classList.add('dnone');
+            else if (pressed_key === 'd') {
+                fight('scissor');
+            }
+        }
 
-c_score.innerHTML = 0;
-p_score.innerHTML = 0;
+        else {
+            if (pressed_key === 'enter') {
+                close_winner_modal();
+                ok_guide();
+            }
+        }
 
-document.onkeydown = (e) => {
-    let pressed_key = e.key.toLowerCase();
-    console.log(pressed_key);
-    if(start_game){
-        if (pressed_key === 'a') {
-            fight(p_rock); 
-        } 
-        else if (pressed_key === 's') {
-            fight(p_paper); 
-        }
-        else if (pressed_key === 'd') {
-            fight(p_scissor);
-        }
-    }
-    else {
-        if (pressed_key === 'enter') {
-            close_winner_modal();
-            ok_guide();
-            score_of_computer = 0;
-            score_of_player = 0;
-        }
-    }
-    find_winner();
+        score_count();
+    };
 };
+
+
+main()
